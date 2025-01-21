@@ -145,12 +145,12 @@ app.delete('/books/:bookId', async (request, response) => {
 })
 
 //Get Author books
-app.get('/authors/:authorId/books/', async (request,response) => {
-  const {authorId}  = request.params;
+app.get('/authors/:authorId/books/', async (request, response) => {
+  const {authorId} = request.params
   const getAuthorBooksQuery = `
   SELECT * FROM book
   WHERE author_id = ${authorId};
   `
-  const authorBooksArray = await db.all(getAuthorBooksQuery);
-  response.send(authorBooksArray);
+  const authorBooksArray = await db.all(getAuthorBooksQuery)
+  response.send(authorBooksArray)
 })
